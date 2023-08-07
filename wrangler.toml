@@ -1,4 +1,4 @@
-type = "vite"
+type = "webpack"
 route = ""
 workers_dev = true
 zone_id = "64032f9bb3e15226843c6c3cf40fc4ca"
