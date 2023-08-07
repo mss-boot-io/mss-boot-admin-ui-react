@@ -27,7 +27,7 @@ jobs:
       - name: Yarn Install
         run: yarn install
       - name: Yarn Package
-        run: yarn build:${{ inputs.stage }}
+        run: yarn build
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
