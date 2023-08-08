@@ -7,11 +7,10 @@ on:
   push:
     branches:
       - main
-      - dev
 
 jobs:
   build:
-    uses: mss-boot-io/mss-boot-admin-ui-react/.github/workflows/deploy-cloudflare.yml@dev
+    uses: mss-boot-io/mss-boot-admin-ui-react/.github/workflows/deploy-cloudflare.yml@main
     with:
       stage: "alpha"
     secrets:
