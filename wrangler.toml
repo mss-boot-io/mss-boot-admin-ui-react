@@ -1,0 +1,23 @@
+type = "webpack"
+route = ""
+workers_dev = true
+zone_id = "64032f9bb3e15226843c6c3cf40fc4ca"
+name = ""
+account_id = "126f4a0c75180e9493cb3716f5178574"
+compatibility_date = "2023-08-08"
+
+[site]
+bucket = "./dist"
+entry-point = "workers-site"
+
+[env.alpha]
+name = "mss-boot-admin-alpha"
+route = "admin-alpha.mss-boot-io.top/*"
+
+[env.beta]
+name = "mss-boot-admin-beta"
+route = "admin-beta.mss-boot-io.top/*"
+
+[env.prod]
+name = "mss-boot-admin"
+route = "admin.mss-boot-io.top/*"

@@ -1,0 +1,17 @@
+name: "Pull Request Check"
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: mss-boot-io/mss-boot-admin-ui-react/.github/workflows/deploy-cloudflare.yml@main
+    with:
+      stage: "alpha"
+    secrets:
+      cf_api_token: ${{ secrets.cf_api_token }}
