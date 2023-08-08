@@ -28,6 +28,9 @@ jobs:
         run: yarn install
       - name: Yarn Package
         run: yarn build
+      
+      - name: fix route
+        run: cp dist/index.html dist/404.html
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
