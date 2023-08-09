@@ -11,9 +11,6 @@ on:
         description: "Cloudflare API Token"
         required: true
 
-env:
-  REACT_APP_API_URL: ${{ inputs.api_base_url }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -33,7 +30,7 @@ jobs:
       - name: Yarn Package
         run: yarn build
         env:
-          REACT_APP_API_URL: ${{ inputs.api_base_url }}
+          REACT_APP_API_URL: ${{ vars.API_BASE_URL }}
       
       - name: fix route
         run: |
