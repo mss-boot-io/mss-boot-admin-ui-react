@@ -3,8 +3,8 @@ import { Message, Modal } from '@arco-design/web-react';
 
 // create an axios instance
 const api = axios.create({
-  baseURL: typeof import.meta.env.REACT_APP_API_URL === "string" ? import.meta.env.REACT_APP_API_URL : '',
-  // baseURL: '',
+  baseURL: import.meta.env.VITE_APP_API_BASE_URL ? import.meta.env.VITE_APP_API_BASE_URL as string : '',
+  // baseURL: 'http://localhost:8080/admin',
   // withCredentials: true, // send cookies when cross-domain requests
   // baseURL: '',
   timeout: 50000 // request timeout
