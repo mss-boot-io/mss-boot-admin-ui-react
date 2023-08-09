@@ -27,10 +27,12 @@ jobs:
           cache: "yarn"
       - name: Yarn Install
         run: yarn install
+
+      - name: Config env
+        run:
+          echo "VITE_APP_API_BASE_URL=${{ vars.API_BASE_URL }}" >> .env
       - name: Yarn Package
         run: yarn build
-        env:
-          REACT_APP_API_URL: ${{ vars.API_BASE_URL }}
       
       - name: fix route
         run: |
