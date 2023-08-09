@@ -6,11 +6,6 @@ on:
         required: true
         default: "alpha"
         type: string
-      api_base_url:
-        description: "The API base URL"
-        required: true
-        default: ""
-        type: string
     secrets:
       cf_api_token:
         description: "Cloudflare API Token"
