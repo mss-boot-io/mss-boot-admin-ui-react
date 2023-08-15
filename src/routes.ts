@@ -1,5 +1,6 @@
 import auth, { AuthParams } from '@/utils/authentication';
 import { useEffect, useMemo, useState } from 'react';
+import api from '@/utils/request';
 
 export type IRoute = AuthParams & {
   name: string;
@@ -12,20 +13,20 @@ export type IRoute = AuthParams & {
 };
 
 export const routes: IRoute[] = [
-  {
-    name: 'menu.dashboard',
-    key: 'dashboard',
-    children: [
-      {
-        name: 'menu.dashboard.workplace',
-        key: 'dashboard/workplace',
-      },
-    ],
-  },
-  {
-    name: 'Example',
-    key: 'example',
-  },
+  // {
+  //   name: 'menu.dashboard',
+  //   key: 'dashboard',
+  //   children: [
+  //     {
+  //       name: 'menu.dashboard.workplace',
+  //       key: 'dashboard/workplace',
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: 'Example',
+  //   key: 'example',
+  // },
 ];
 
 export const getName = (path: string, routes) => {
@@ -84,8 +85,12 @@ const useRoute = (userPermission): [IRoute[], string] => {
   const [permissionRoute, setPermissionRoute] = useState(routes);
 
   useEffect(() => {
-    const newRoutes = filterRoute(routes);
-    setPermissionRoute(newRoutes);
+    api.get("/api/menu/tree").then((res) => {
+      const { data } = res;
+      routes.push(...data);
+      const newRoutes = filterRoute(data);
+      setPermissionRoute(newRoutes);
+    });
   }, [JSON.stringify(userPermission)]);
 
   const defaultRoute = useMemo(() => {
