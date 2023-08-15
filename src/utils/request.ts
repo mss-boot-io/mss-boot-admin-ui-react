@@ -18,12 +18,12 @@ api.interceptors.request.use(
     // if (store.getters.token) {
     //   config.headers['Authorization'] = 'Bearer ' + getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
     // }
-    console.log('url:' + config.url);
+    // console.log('url:' + config.url);
     return config
   },
   error => {
     // do something with request error
-    console.log(error) // for debug
+    // console.log(error) // for debug
     return Promise.reject(error)
   }
 )
@@ -41,7 +41,7 @@ api.interceptors.response.use(
    * You can also judge the status by HTTP Status Code
    */
   response => {
-    console.log('response:' + JSON.stringify(response))
+    // console.log('response:' + JSON.stringify(response))
     const res = response.data
 
     // if the custom code is not 20000, it is judged as an error.
