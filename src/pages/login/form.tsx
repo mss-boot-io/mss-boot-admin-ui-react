@@ -45,8 +45,10 @@ export default function LoginForm() {
     api
       .post('/api/user/login', params)
       .then((res) => {
-        const { status, msg } = res.data;
-        if (status === 'ok') {
+        const { status, msg, token, expire } = res.data;
+        if (!status || status !== 'error') {
+          localStorage.setItem('token', token);
+          localStorage.setItem('expire', expire);
           afterLoginSuccess(params);
         } else {
           setErrorMessage(msg || t['login.form.login.errMsg']);

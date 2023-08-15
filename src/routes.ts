@@ -12,22 +12,7 @@ export type IRoute = AuthParams & {
   ignore?: boolean;
 };
 
-export const routes: IRoute[] = [
-  // {
-  //   name: 'menu.dashboard',
-  //   key: 'dashboard',
-  //   children: [
-  //     {
-  //       name: 'menu.dashboard.workplace',
-  //       key: 'dashboard/workplace',
-  //     },
-  //   ],
-  // },
-  // {
-  //   name: 'Example',
-  //   key: 'example',
-  // },
-];
+export const routes: IRoute[] = [];
 
 export const getName = (path: string, routes) => {
   return routes.find((item) => {

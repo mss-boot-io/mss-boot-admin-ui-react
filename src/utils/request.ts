@@ -3,8 +3,8 @@ import { Message, Modal } from '@arco-design/web-react';
 
 // create an axios instance
 const api = axios.create({
-  baseURL: import.meta.env.VITE_APP_API_BASE_URL ? import.meta.env.VITE_APP_API_BASE_URL as string : '',
-  // baseURL: 'http://localhost:8080/admin',
+  // baseURL: import.meta.env.VITE_APP_API_BASE_URL ? import.meta.env.VITE_APP_API_BASE_URL as string : '',
+  baseURL: 'http://localhost:8080/admin',
   // withCredentials: true, // send cookies when cross-domain requests
   // baseURL: '',
   timeout: 50000 // request timeout
@@ -15,10 +15,9 @@ api.interceptors.request.use(
   config => {
     // do something before request is sent
     //todo set access token
-    // if (store.getters.token) {
-    //   config.headers['Authorization'] = 'Bearer ' + getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
-    // }
-    // console.log('url:' + config.url);
+    if (localStorage.getItem('token')) {
+      config.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token') // 让每个请求携带自定义token 请根据实际情况自行修改
+    }
     return config
   },
   error => {
